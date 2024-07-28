@@ -1,4 +1,5 @@
 import {create} from "zustand"
+
 type AuthStore = {
   isAuthenticated: boolean
   authenticate: () => void
@@ -7,8 +8,12 @@ type AuthStore = {
 
 const useAuthStore = create<AuthStore>()((set) => ({
   isAuthenticated: false,
-  authenticate: () => set({isAuthenticated: true}),
-  logout: () => set({isAuthenticated: false}),
+  authenticate: () => {
+    set({isAuthenticated: true});
+  },
+  logout: () => {
+    set({isAuthenticated: false});
+  },
 }))
 
 export default useAuthStore

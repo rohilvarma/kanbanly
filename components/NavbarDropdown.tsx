@@ -1,6 +1,6 @@
 "use client"
 /**
- * Renders a dropdown menu component for the sidebar.
+ * Renders a dropdown menu component for the Navbar.
  *
  * @return {JSX.Element} The rendered dropdown menu component.
  */
@@ -15,7 +15,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-const SidebarDropdown = () => {
+const NavbarDropdown = () => {
   const { isAuthenticated, authenticate, logout } = useAuthStore();
   return (
     <DropdownMenu modal={false}>
@@ -38,4 +38,4 @@ const SidebarDropdown = () => {
   );
 };
 
-export default SidebarDropdown;
+export default NavbarDropdown;

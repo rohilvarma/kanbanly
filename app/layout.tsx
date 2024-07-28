@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import { cn } from "@/lib/utils";
-import Sidebar from "@/components/Sidebar";
+import Navbar from "@/components/Navbar";
 import { inter } from "@/lib/fonts";
 import Footer from "@/components/Footer";
 
@@ -25,10 +25,8 @@ export default function RootLayout({
           inter.variable
         )} app-container`}
       >
-        <main className="sm:flex">
-          <Sidebar />
+          <Navbar />
           {children}
-        </main>
         <Footer />
       </body>
     </html>
