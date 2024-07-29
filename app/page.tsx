@@ -1,5 +1,5 @@
 /**
- * Renders the Home component, which displays a welcome message and a quote by the author.
+ * Renders the Home component, ie, the landing page, which displays a welcome message and a quote by the author.
  *
  * @return {JSX.Element} The rendered Home component.
  */
@@ -8,7 +8,7 @@ import { oswald } from "@/lib/fonts";
 
 export default function Home() {
   return (
-    <main className="sm:min-h-screen sm:flex sm:justify-center sm:items-center">
+    <main className="sm:flex sm:justify-center sm:items-center sm:mt-[25vh]">
       <div className="my-32 sm:my-0">
         <h1 className="text-5xl">
           Welcome to{" "}

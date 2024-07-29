@@ -3,6 +3,7 @@
 import { Button } from "./ui/button";
 import useAuthStore from "@/lib/authStore";
 import { FaChevronRight } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 type ButtonType = {
   variant?: "secondary" | "outline" | "ghost";
@@ -12,28 +13,31 @@ type ButtonType = {
 const AuthButton = ({ variant, btnMessage }: ButtonType) => {
   const { authenticate, logout, isAuthenticated } = useAuthStore();
 
+  const router = useRouter()
 
   const handleClick = () => {
-    switch(btnMessage.toUpperCase()) {
+    switch (btnMessage.toUpperCase()) {
       case "REGISTER": {
-        authenticate()
+        authenticate();
+        router.push("/home")
         break;
       }
       case "LOG IN": {
         authenticate();
+        router.push("/home")
         break;
       }
-      case "LOG OUT":
+      case "LOG OUT": {
         logout();
+        router.push("/")
         break;
+      }
     }
   };
   return (
     <Button variant={variant} onClick={handleClick}>
       {btnMessage}
-      {
-        variant === "secondary" && <FaChevronRight className="ml-1" />
-      }
+      {variant === "secondary" && <FaChevronRight className="ml-1" />}
     </Button>
   );
 };

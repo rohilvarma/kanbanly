@@ -9,6 +9,7 @@ import Link from "next/link";
 import NavbarDropdown from "./NavbarDropdown";
 import { oswald } from "@/lib/fonts";
 import AuthButton from "./AuthButton";
+import NavbarButtons from "./NavbarButtons";
 
 
 const Navbar = () => {
@@ -27,10 +28,7 @@ const Navbar = () => {
         <Link href="/" className={`${oswald.className} text-4xl w-full`}>
           Kanbanly
         </Link>
-        <div className="flex items-center justify-center gap-2">
-          <AuthButton btnMessage="Log In" />
-          <AuthButton variant="ghost" btnMessage="Register" />
-        </div>
+        <NavbarButtons />
       </section>
     </nav>
   );
