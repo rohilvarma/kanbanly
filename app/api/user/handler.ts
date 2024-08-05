@@ -1,11 +1,5 @@
 import { db } from "@/db";
-import {
-  boardsTable,
-  InsertUser,
-  SelectUser,
-  tasksTable,
-  usersTable,
-} from "@/db/schema";
+import { InsertUser, SelectUser, usersTable } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { NextResponse } from "next/server";
 import { MissingValueError, UserNotFoundError } from "./errors";
@@ -28,7 +22,7 @@ export const getAll = async (): Promise<NextResponse> => {
     if (error instanceof UserNotFoundError) {
       return NextResponse.json(error.message, { status: 404 });
     } else {
-      console.log(error);
+      console.error(error);
       return NextResponse.json(error, { status: 500 });
     }
   }
@@ -56,7 +50,7 @@ export const getUser = async (email: string): Promise<NextResponse> => {
     if (error instanceof UserNotFoundError) {
       return NextResponse.json(error.message, { status: 404 });
     } else {
-      console.log(error);
+      console.error(error);
       return NextResponse.json(error, { status: 500 });
     }
   }
@@ -90,10 +84,10 @@ export const addUser = async (
     return NextResponse.json("New User created successfully.", { status: 201 });
   } catch (error) {
     if (error instanceof MissingValueError) {
-      console.log(`Inputs received: {name: ${name}, email: ${email}}`);
+      console.error(`Inputs received: {name: ${name}, email: ${email}}`);
       return NextResponse.json(error.message, { status: 400 });
     } else {
-      console.log(error);
+      console.error(error);
       return NextResponse.json(error, { status: 500 });
     }
   }
